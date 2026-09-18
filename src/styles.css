@@ -1,0 +1,72 @@
+:root {
+  --cor-fundo: #f5f7fa;
+  --cor-superficie: #ffffff;
+  --cor-texto: #1a2433;
+  --cor-texto-suave: #4a5568;
+  --cor-borda: #d5dbe3;
+  --cor-primaria: #0b5394;
+  --cor-primaria-texto: #ffffff;
+  --cor-foco: #f5a623;
+  --cor-andamento-fundo: #fff4d6;
+  --cor-andamento-texto: #7a4b00;
+  --cor-concluido-fundo: #dff3e4;
+  --cor-concluido-texto: #1e5b2e;
+  --cor-erro-fundo: #fde8e8;
+  --cor-erro-texto: #8a1c1c;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+  line-height: 1.5;
+}
+
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1 { font-size: 1.5rem; margin: 0 0 1rem; }
+
+:focus-visible { outline: 3px solid var(--cor-foco); outline-offset: 2px; }
+
+.pagina { max-width: 960px; margin: 0 auto; padding: 1.5rem 1rem; }
+.pagina--centro { min-height: 100vh; display: grid; place-items: center; }
+
+.topo { display: flex; gap: 1rem; align-items: center; padding: 0.75rem 1rem; background: var(--cor-superficie); border-bottom: 1px solid var(--cor-borda); }
+.topo p { margin: 0; }
+.topo__marca { font-weight: 700; color: var(--cor-primaria); }
+.topo__orgao { margin-left: auto !important; color: var(--cor-texto-suave); }
+
+.cartao { background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: 8px; padding: 1.5rem; }
+.cartao--login { width: min(400px, 100%); }
+
+.formulario { display: grid; gap: 0.5rem; }
+.formulario label { font-weight: 600; margin-top: 0.5rem; }
+.formulario input, .formulario select { padding: 0.6rem; border: 1px solid var(--cor-borda); border-radius: 6px; font: inherit; }
+.formulario__erro { color: var(--cor-erro-texto); background: var(--cor-erro-fundo); padding: 0.5rem 0.75rem; border-radius: 6px; margin: 0.5rem 0 0; }
+.aviso { background: var(--cor-andamento-fundo); color: var(--cor-andamento-texto); padding: 0.5rem 0.75rem; border-radius: 6px; }
+
+.botao { margin-top: 0.75rem; padding: 0.6rem 1rem; border: 0; border-radius: 6px; background: var(--cor-primaria); color: var(--cor-primaria-texto); font: inherit; font-weight: 600; cursor: pointer; }
+.botao--secundario { margin-top: 0; background: transparent; color: var(--cor-primaria); border: 1px solid var(--cor-primaria); }
+.botao:disabled { opacity: 0.6; cursor: not-allowed; }
+
+.filtros { display: flex; gap: 0.5rem; flex-wrap: wrap; margin-bottom: 1rem; }
+.filtros__botao { padding: 0.4rem 0.9rem; border-radius: 999px; border: 1px solid var(--cor-borda); background: var(--cor-superficie); color: var(--cor-texto); font: inherit; cursor: pointer; }
+.filtros__botao[aria-pressed='true'] { background: var(--cor-primaria); border-color: var(--cor-primaria); color: var(--cor-primaria-texto); font-weight: 600; }
+
+.contador { color: var(--cor-texto-suave); margin: 0 0 0.75rem; }
+
+.processos { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
+.processos[aria-busy='true'] { opacity: 0.7; }
+.processo-card { background: var(--cor-superficie); border: 1px solid var(--cor-borda); border-radius: 8px; padding: 1rem; }
+.processo-card__titulo { font-size: 1.05rem; margin: 0; }
+.processo-card__numero { margin: 0.25rem 0 0.75rem; color: var(--cor-texto-suave); font-size: 0.9rem; }
+.processo-card__rodape { display: flex; justify-content: space-between; align-items: center; gap: 1rem; flex-wrap: wrap; font-size: 0.9rem; }
+
+.status-badge { display: inline-flex; gap: 0.35rem; align-items: center; padding: 0.15rem 0.6rem; border-radius: 999px; font-weight: 600; font-size: 0.85rem; }
+.status-badge--em_andamento { background: var(--cor-andamento-fundo); color: var(--cor-andamento-texto); }
+.status-badge--concluido { background: var(--cor-concluido-fundo); color: var(--cor-concluido-texto); }
+
+.estado { padding: 2rem 1rem; text-align: center; border-radius: 8px; background: var(--cor-superficie); border: 1px solid var(--cor-borda); }
+.estado--erro { background: var(--cor-erro-fundo); color: var(--cor-erro-texto); border-color: transparent; }
+.estado__titulo { font-weight: 600; }
+.estado--carregando { display: flex; gap: 0.75rem; justify-content: center; align-items: center; }
+.spinner { width: 1.1rem; height: 1.1rem; border: 3px solid var(--cor-borda); border-top-color: var(--cor-primaria); border-radius: 50%; animation: girar 0.8s linear infinite; }
+@keyframes girar { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .spinner { animation: none; } }
